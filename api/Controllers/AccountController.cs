@@ -25,34 +25,18 @@ public class AccountController : ControllerBase
     [Route("/api/account/login")]
     public IActionResult Login([FromBody] LoginCommandModel model)
     {
-<<<<<<< Updated upstream
         var user = _service.Authenticate(model);
         if (user == null) return Unauthorized();
         var token = _jwtService.IssueToken(SessionData.FromUser(user!));
         return Ok(new { token });
-=======
-        var user = _service.Authenticate(dto.Email, dto.Password);
-        return new ResponseDto
-        {
-            MessageToClient = "Successfully authenticated"
-        };
->>>>>>> Stashed changes
     }
 
     [HttpPost]
     [Route("/api/account/register")]
     public IActionResult Register([FromBody] RegisterCommandModel model)
     {
-<<<<<<< Updated upstream
         var user = _service.Register(model);
         return Created();
-=======
-        var user = _service.Register(dto.FullName, dto.Email, dto.Password, avatarUrl: dto.AvatarUrl);
-        return new ResponseDto
-        {
-            MessageToClient = "Successfully registered"
-        };
->>>>>>> Stashed changes
     }
 
     [RequireAuthentication]

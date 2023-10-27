@@ -5,7 +5,6 @@ namespace Service;
 public abstract class PasswordHashAlgorithm
 {
     const string PreferredAlgorithmName = Argon2idPasswordHashAlgorithm.Name;
-<<<<<<< Updated upstream:service/Password/PasswordHashAlgorithm.cs
 
     public static PasswordHashAlgorithm Create(string algorithmName = PreferredAlgorithmName)
     {
@@ -17,19 +16,7 @@ public abstract class PasswordHashAlgorithm
                 throw new NotImplementedException();
         }
     }
-=======
->>>>>>> Stashed changes:service/PasswordHashAlgorithm.cs
 
-    public static PasswordHashAlgorithm Create(string algorithmName = PreferredAlgorithmName)
-    {
-        switch (algorithmName)
-        {
-            case Argon2idPasswordHashAlgorithm.Name:
-                return new Argon2idPasswordHashAlgorithm();
-            default:
-                throw new NotImplementedException();
-        }
-    }
     public abstract string GetName();
 
     public abstract string HashPassword(string password, string salt);
