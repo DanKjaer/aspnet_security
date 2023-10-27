@@ -1,15 +1,16 @@
 ﻿using service;
+using service.Services;
 
 namespace api.GraphQL.Types;
 
 [GraphQLName("Query")]
 public class QueryGql
 {
-    public UserGql? GetMe([Service] UserService service, [GlobalState(GlobalStateKeyss.Session)] SessionData? session)
+    public UserGql? GetMe([Service] UserService service, [GlobalState(GlobalStateKeys.Session)] SessionData? session)
     {
         if (session == null) return null;
         var user = service.GetById(session.UserId);
-        if(user == null) return null;
+        if (user == null) return null;
         return UserGql.FromModel(user);
     }
 
@@ -17,3 +18,4 @@ public class QueryGql
     {
         return service.GetAll().Select(PostGql.FromModel);
     }
+}

@@ -1,4 +1,5 @@
 using api;
+using api.GraphGqL;
 using api.GraphQL;
 using api.GraphQL.Types;
 using api.Middleware;

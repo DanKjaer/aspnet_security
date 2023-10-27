@@ -1,4 +1,6 @@
-﻿namespace api.GraphQL.Types;
+﻿using infrastructure.DataModels;
+
+namespace api.GraphQL.Types;
 
 [GraphQLName("Post")]
 public class PostGql
@@ -20,3 +22,4 @@ public class PostGql
             AuthorId = model.AuthorId
         };
     }
+}

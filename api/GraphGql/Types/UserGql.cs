@@ -22,3 +22,4 @@ public class UserGql
             Id = model.Id,
         };
     }
+}

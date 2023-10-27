@@ -3,3 +3,4 @@
 public static class GlobalStateKeys
 {
     public const string Session = "Session";
+}
