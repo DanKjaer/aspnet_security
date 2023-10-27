@@ -1,4 +1,6 @@
 using api;
+using api.GraphQL;
+using api.GraphQL.Types;
 using api.Middleware;
 using infrastructure.Repositories;
 using service;
@@ -36,10 +38,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSecurityHeaders();
-
+builder.Services.AddGraphQLServer().AddQueryType<QueryGql>().AddHttpRequestInterceptor<HttpRequestInterceptor>();
 app.UseSpaStaticFiles();
 app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
-
+app.MapGraphQL();
 app.MapControllers();
 app.UseMiddleware<JwtBearerHandler>();
 app.UseMiddleware<GlobalExceptionHandler>();
