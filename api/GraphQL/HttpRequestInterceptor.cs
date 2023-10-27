@@ -1,9 +1,7 @@
-﻿using api.GraphQL;
-
-using HotChocolate.AspNetCore;
+﻿using HotChocolate.AspNetCore;
 using HotChocolate.Execution;
 
-namespace api.GraphGqL;
+namespace api.GraphQL;
 
 public class HttpRequestInterceptor : DefaultHttpRequestInterceptor
 {

@@ -13,6 +13,13 @@ public class QueryGql
         if (user == null) return null;
         return UserGql.FromModel(user);
     }
+    
+    public PostGql? GetPost([Service] PostService service, int id)
+    {
+        var model = service.GetById(id);
+        if (model == null) return null;
+        return PostGql.FromModel(model);
+    }
 
     public IEnumerable<PostGql> GetPosts([Service] PostService service)
     {
